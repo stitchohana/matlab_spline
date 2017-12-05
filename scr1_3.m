@@ -1,13 +1,13 @@
-K = 3;
-q = [1; 2; 4; 6; 7; 8; 9];
-alpha = [1; 2; -0.5; 1];
+K = 3; % （K-1）次Bースプライン
+q = [1; 2; 4; 6; 7; 8; 9]; % 節点のを設定
+alpha = [1; 2; -0.5; 1]; % 係り数を設定
 
-x = linspace(0, 11, 100)';
-y = fun_spline(x, K, q, alpha);
+x = linspace(0, 11, 100)'; % ｘ座標を設定
+y = fun_spline(x, K, q, alpha); % 関数値を求める
 
-figure(1);
-clf;
-plot(x, y, 'b-');
-hold on;
-plot(q, zeros(length(q), 1), 'ro');
-axis([0, 11, -1, 2]);
+figure(1); % 描画ウィンドウ１を開く
+clf; % 描画ウィンドウクリア
+plot(x, y, 'b-'); % グラフ描画
+hold on; % 上書き描画設定
+plot(q, zeros(length(q), 1), 'ro'); % 節点の描画
+axis([0, 11, -1, 2]); % 描画領域の指定
