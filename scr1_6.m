@@ -1,25 +1,10 @@
 v = [0; 1; 2; 1; 0];% データの値
+n = 10;% 計算範囲
+x = linspace(-n, n, 1000)'; % ｘ座標
 M = 2;
 alpha = fun_interpCoeffPeriod(v, M);
-N = length(v);
-sum = zeros(size(x));
 
-for i = -10:10
-    j = i;
-    while(1)
-        if j <= 0
-            j = j + N;
-        elseif j > N
-            j = j - N;
-        end
-        if j > 0 && j <= N
-            break;
-        end
-    end
-    sum = sum + alpha(j) * fun_bsplinePeriod(x, i, M);
-end
-x = linspace(-10, 10, 1000)'; % ｘ座標
-y = sum; % ｙ座標を求める
+y = fun_splinePeriod(x, v, n, M, alpha);
 
 figure(1); % 描画ウィンドウ１を開く
 clf; % 描画ウィンドウクリア

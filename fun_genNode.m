@@ -1,7 +1,7 @@
 function q = fun_genNode( u, K )
 
 N = length(u);
-q = zeros(size(u));
+q = zeros(N + K, 1);
 
 for  i = 1:K
     q(i) = u(1);
